@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: calc(100% - 10px);
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Student Marks</h1>
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <label for="registerNumber">Register Number:</label>
+                <input type="text" id="registerNumber" name="registerNumber" required>
+            </div>
+
+            <% if (marks) { %>
+                <h2>Marks</h2>
+                <p>Subject 1: <%= marks.subject1 %></p>
+                <p>Subject 2: <%= marks.subject2 %></p>
+                <p>Subject 3: <%= marks.subject3 %></p>
+                <p>Subject 4: <%= marks.subject4 %></p>
+                <p>Subject 5: <%= marks.subject5 %></p>
+                <p>GPA: <%= gpa.toFixed(2) %></p>
+            <% } else { %>
+                <div class="form-group">
+                    <label for="subject1">Subject 1:</label>
+                    <input type="number" id="subject1" name="subject1" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject2">Subject 2:</label>
+                    <input type="number" id="subject2" name="subject2" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject3">Subject 3:</label>
+                    <input type="number" id="subject3" name="subject3" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject4">Subject 4:</label>
+                    <input type="number" id="subject4" name="subject4" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject5">Subject 5:</label>
+                    <input type="number" id="subject5" name="subject5" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            <% } %>
+        </form>
+    </div>
+</body>
+</html>
